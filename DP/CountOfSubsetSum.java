@@ -40,6 +40,9 @@ public interface CountOfSubsetSum {
                 }
             }
         }
+        for (int[] nums : dp) {
+            System.out.println(Arrays.toString(nums));
+        }
         return dp[length][sum];
     }
 }
