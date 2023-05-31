@@ -21,31 +21,31 @@ public class MinimumDifferenceSubset {
         return Math.min(c, d);
     }
 
-    public static int dp(int[] arr){
+    public static int dp(int[] arr) {
         int n = arr.length;
-        int sum=0;
-        for(int i : arr){
-            sum+=i;
+        int sum = 0;
+        for (int i : arr) {
+            sum += i;
         }
 
-        boolean[][] ans = new boolean[n+1][sum+1];
-        Arrays.fill(ans[0],false);
-        for(int i =0;i<n+1;i++){
-            ans[i][0] = false;
+        boolean[][] ans = new boolean[n + 1][sum + 1];
+        Arrays.fill(ans[0], false);
+        for (int i = 0; i < n + 1; i++) {
+            ans[i][0] = true;
         }
 
-        for(int i =1;i<n+1;i++){
-            for (int j = 0; j < sum+1; j++) {
-                if(j-arr[i-1]>=0){
-                    ans[i][j] = true;
-                } else{
-                    ans[i][j] =  false;
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 0; j < sum + 1; j++) {
+                if (arr[i - 1] <= j) {
+                    ans[i][j] = ans[i - 1][j - arr[i - 1]] || ans[i - 1][j];
+                } else {
+                    ans[i][j] = ans[i - 1][j];
                 }
             }
         }
-        for(int i=0;i<sum+1;i++){
-            if(ans[n][i] == true){
-                return i;
+        for (int i = sum / 2; i >= 1 / 2; i--) {
+            if (ans[n][i] == true) {
+                return sum - 2 * i;
             }
         }
         return 0;
