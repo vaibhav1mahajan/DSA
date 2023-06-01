@@ -1,4 +1,4 @@
-package DP;
+package DP.Knapsack;
 
 public class RodCutting {
     public static void main(String[] args) {
