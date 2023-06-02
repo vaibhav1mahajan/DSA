@@ -2,7 +2,8 @@ package DP.Longest_Common_Subsq;
 
 public class Problem_1 {
     public static void main(String[] args) {
-
+        String x = "ababcdgh";
+        String y = "abedghr";
     }
 
     public static int dp(String x, String y) {
