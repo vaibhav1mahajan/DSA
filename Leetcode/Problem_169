@@ -1,0 +1,20 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        Arrays.sort(nums);
+        int count =nums[0];
+        int appear = nums.length/2 +1;
+        int appear1 = nums.length/2;
+        for(int a :nums){
+            if(appear==0){
+                return count;
+            }
+            if(count==a){
+                appear--;
+            } else{
+                count=a;
+                appear=appear1;
+            }
+        }
+        return count;
+    }
+}
