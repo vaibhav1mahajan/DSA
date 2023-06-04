@@ -1,0 +1,15 @@
+class Solution {
+    public int thirdMax(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for(int a : nums){
+            set.add(a);
+        }
+        if(set.size()<3){
+            return (int)(Collections.max(set));
+        } else{
+            set.remove((int)(Collections.max(set)));
+            set.remove((int)(Collections.max(set)));
+            return (int)(Collections.max(set));
+        }
+    }
+}
